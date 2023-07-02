@@ -49,11 +49,7 @@ pub fn try_from_slice_unchecked<T: borsh::BorshDeserialize>(data: &[u8]) -> Resu
 }
 
 pub fn dtranscribe(dna: String) -> ProgramResult {
-    msg!(dna.chars().map(|a| match a {
-        'T' => 'U' ,
-        _ => a ,
-    }).collect::<String>().as_str()
-);
+    msg!(dtranscribe1(&dna).as_str());
     Ok(())
 }
 
@@ -74,14 +70,7 @@ pub fn rtranscribe(rna: String) -> ProgramResult {
 }
 
 pub fn complement(dna: String) -> ProgramResult {
-    msg!(dna.chars().map(|a| match a {
-    'A' => 'T' ,
-    'T' => 'A' ,
-    'C' => 'G' ,
-    'G' => 'C' ,
-    _ => a ,
-    }).collect::<String>().as_str()
-);
+    msg!(complement1(&dna).as_str());
     Ok(())
 }
 
